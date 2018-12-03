@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view>
-
-    </router-view>
+     <v-app>
+      <page-header />
+      
+      <main>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
+      </main>
+    </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-//import Register from '@/components/Register'
+import PageHeader from '@/components/Header.vue'
+
 export default {
   name: 'app',
   components: {
-    HelloWorld
-   // Register
+   PageHeader
+   
   }
 }
 </script>

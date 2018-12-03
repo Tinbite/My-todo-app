@@ -4,4 +4,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
   app.post('/register',
     AuthenticationControllerPolicy.register,
     AuthenticationController.register)
+
+    app.post('/login',
+    AuthenticationController.login)
 }
