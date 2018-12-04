@@ -1,36 +1,36 @@
 <template>
-  <v-layout wrap align center>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan darken-4" dark>
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
-         <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field
-            label="Email"
-            v-model="email"
-          ></v-text-field>
-          <br>
-          <v-text-field
-            label="Password"
-            type="password"
-            v-model="password"
-          ></v-text-field>
-          <br>
-          <div class="error" v-html="error" />
-          <br>
-          <v-btn
-            dark
-            class="cyan darken-4"
-            @click="login">
-            Login
-          </v-btn>
-        </div>
-      </div>
+  <v-container>
+    <v-layout row wrap>
+      <v-flex xs6 offset-xs3>
+        <h1>Login</h1>
+        <v-text-field
+          label="Email"
+          placeholder="email"
+          v-model="email"
+        ></v-text-field>
+        <br>
+        <v-text-field
+          label="Password"
+          placeholder="password"
+          type="password"
+          v-model="password"
+        ></v-text-field>
+        <br>
+        <div class="error" v-html="error" />
+        <br>
+        <v-btn
+          dark
+          class="cyan darken-4"
+          @click="login">
+          <v-icon class="mr-2">fingerprint</v-icon>
+          Login
+        </v-btn>
     </v-flex>
   </v-layout>
+  </v-container>
 </template>
  <script>
+ 
 import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
@@ -57,4 +57,7 @@ export default {
 }
 </script>
  <style scoped>
+ h1 {
+   color: darkcyan;
+ }
 </style>
