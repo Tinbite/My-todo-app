@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs4>
-      <panel title="Tasks">
+      <panel title="My Tasks">
         <v-text-field
           label="Title"
           required
@@ -48,7 +48,7 @@ import TasksService from '@/services/TasksService'
       try {
         await TasksService.put(this.task)
         this.$router.push({
-          name: 'task',
+          name: 'tasks',
           params: {
             taskId: taskId
           }

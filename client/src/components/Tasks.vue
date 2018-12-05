@@ -27,13 +27,19 @@
                 dark
                 class="cyan darken-4"
                 @click="navigateTo({
-                  name: 'task', 
+                  name: 'task-edit', 
                   params: {
                     taskId: task.id
                   }
                 })">
-                View
+                Edit
               </v-btn> 
+            <v-btn
+            dark
+        class="cyan darken-4"
+        @click="remove">
+        Delete
+      </v-btn> 
             </v-flex>
           </v-layout>
         </div>
@@ -64,13 +70,8 @@ export default {
 }
 </script>
  <style scoped>
-.task {
-  padding: 20px;
-  height: 330px;
-  overflow: hidden;
-}
  .task-title {
-  font-size: 30px;
+  font-size: 25px;
 }
  
 </style>
