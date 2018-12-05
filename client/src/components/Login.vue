@@ -16,12 +16,13 @@
           v-model="password"
         ></v-text-field>
         <br>
-        <div class="error" v-html="error" />
+        <div class="danger-alert" v-html="error" />
         <br>
         <v-btn
           dark
           class="cyan darken-4"
-          @click="login">
+           @click="navigateTo({name: 'tasks'})"
+          >
           <v-icon class="mr-2">fingerprint</v-icon>
           Login
         </v-btn>
@@ -41,6 +42,9 @@ export default {
     }
   },
   methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    },
     async login () {
       try {
         const response = await AuthenticationService.login({

@@ -66,7 +66,9 @@
           v-model="password"
           autocomplete="new-password"
         ></v-text-field>
-
+           <br>
+           <div class="danger-alert" v-html="error" />
+           <br>
          <!-- <v-alert type="error" value="error"> -->
           <!-- {{registerError}} -->
         <!-- </v-alert> -->
@@ -101,6 +103,9 @@ export default {
         })
       this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'tasks'
+        })
      
      } catch (error) {
         this.error = error.response.data.error

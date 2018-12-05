@@ -1,4 +1,5 @@
 import Api from '@/services/Api'
+
  export default {
   index () {
     return Api().get('tasks')
@@ -11,6 +12,9 @@ import Api from '@/services/Api'
   },
   put (task) {
     return Api().put(`tasks/${task.id}`, task)
+  },
+  delete (taskId) {
+    return Api().delete(`tasks/${taskId}`)
   }
 
 }

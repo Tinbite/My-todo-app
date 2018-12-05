@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs8>
-      <panel title="Tasks">
+      <panel title="My Tasks">
         <v-text-field
           label="Title"
           required
@@ -12,23 +12,26 @@
        <div class="danger-alert" v-if="error">
         {{error}}
       </div>
-      <v-flex xs4 class="text-xs-right">
+    </v-flex>
+   <panel>
+      <v-flex xs1 class="text-xs-right">
       <v-btn
         @click="create"
         dark
         class="mt-2"
-        color="cyan">
+        color="cyan darken-4">
         <v-icon class="mr-2">add_circle</v-icon>
         Create
       </v-btn>
     </v-flex>
+    </panel>
        <!-- <v-btn
         dark
         class="cyan darken-4"
         @click="create">
         Create Task
       </v-btn> -->
-    </v-flex>
+   
   </v-layout>
 </template>
  <script>
@@ -64,10 +67,10 @@ import TasksService from '@/services/TasksService'
         console.log(err)
       }
     }
-  },
-  components: {
-    Panel
-  }
+   },
+   components: {
+     Panel
+   }
 }
 </script>
  <style scoped>

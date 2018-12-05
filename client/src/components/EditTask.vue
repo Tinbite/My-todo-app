@@ -68,9 +68,9 @@ import TasksService from '@/services/TasksService'
       console.log(err)
     }
   },
-  components: {
+   components: {
     Panel
-  }
+   }
 }
 </script>
  <style scoped>

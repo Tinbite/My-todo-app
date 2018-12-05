@@ -45,5 +45,17 @@ const {Task} = require('../models')
         error: 'an error has occured trying to update the task'
       })
     }
+  },
+  async delete (req, res) {
+    try {
+      const {taskId} = req.params
+      const task = await Task.findById(taskId)
+      await task.destroy()
+      res.send(task)
+    } catch (err) {
+      res.status(500).send({
+        error: 'an error has occured trying to delete the task'
+      })
+    }
   }
 } 

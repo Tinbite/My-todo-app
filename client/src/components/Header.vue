@@ -1,25 +1,36 @@
 <template>
   <v-toolbar fixed class="cyan darken-4" dark>
     <v-toolbar-title class="mr-4">
-      <span 
+      <router-link
+         dark
         class="home"
-        @click="navigateTo({name: 'root'})">
-        My Todo
-      </span>
+         :to="{
+          name: 'root'
+        }">
+         My Todo 
+       </router-link>
     </v-toolbar-title>
-     <!-- TODO: Implement Me -->
-    <!-- <v-toolbar-items>
-      <v-btn flat dark>
-        Browse
-      </v-btn>
-    </v-toolbar-items> -->
-     <v-spacer></v-spacer>
      <v-toolbar-items>
+       <v-btn 
+        flat 
+        dark
+        :to="{
+          name: 'tasks'
+        }">
+        <v-icon class="mr-2">playlist_add_check</v-icon>
+        Tasks
+      </v-btn>
+      </v-toolbar-items>
+    <v-spacer></v-spacer>
+<v-toolbar-items>
       <v-btn 
         v-if="!$store.state.isUserLoggedIn"
         flat 
         dark
-        @click="navigateTo({name: 'login'})">
+       :to="{
+          name: 'login'
+        }">
+        <v-icon class="mr-2">fingerprint</v-icon>
         Login
       </v-btn>
       
@@ -27,7 +38,10 @@
         v-if="!$store.state.isUserLoggedIn"
         flat 
         dark
-        @click="navigateTo({name: 'register'})">
+       :to="{
+          name: 'register'
+        }">
+        <v-icon class="mr-2">account_box</v-icon>
         Sign Up
       </v-btn>
        <v-btn 
@@ -35,6 +49,7 @@
         flat 
         dark
         @click="logout">
+        <v-icon class="mr-2">exit_to_app</v-icon>
         Log Out
       </v-btn>
     </v-toolbar-items>
@@ -43,9 +58,6 @@
  <script>
 export default {
   methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-  },
   logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
@@ -57,7 +69,8 @@ export default {
 }
 </script>
  <style scoped>
-.home {
+.home { 
+  color:white;
   cursor: pointer;
 }
  .home:hover {
