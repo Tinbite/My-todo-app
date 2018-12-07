@@ -1,58 +1,9 @@
-<!--<template>
-    <v-layout wrap align center> 
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan darken-4" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
 
-        <div class="pl-4 pr-4 pt-2 pb-2">
-             <form 
-            name="tab-tracker-form"
-            autocomplete="off">
-            <v-text-field
-              label="Email"
-              placeholder="email"
-              v-model="email"
-            ></v-text-field>
-            <br>
-            <v-text-field
-              label="Password"
-              type="password"
-              placeholder="password"
-              v-model="password"
-              autocomplete="new-password"
-            ></v-text-field>
-          </form>
-<v-alert type="error" :value="registerError">
-          {{registerError}}
-        </v-alert>
-           <br> 
-           <div class="error" v-html="error" />
-           <br> 
-          <v-btn
-            dark
-            class="cyan darken-4"
-            @click="register">
-            <v-icon class="mr-2">account_circle</v-icon>
-            Register
-          </v-btn>
-        </div>
-      </div>
-    </v-flex>
-  </v-layout>
-
-</template>-->
 <template>
   <v-container>
    <v-layout wrap align center> 
     <v-flex xs6 offset-xs3>
       <h1>Register</h1>
-     <!-- <panel title="Register"> -->
-        <!-- <form 
-          name="my-todo-form"
-          autocomplete="off"> -->
-
         <v-text-field
           label="Email"
           placeholder="email"
@@ -69,11 +20,9 @@
            <br>
            <div class="danger-alert" v-html="error" />
            <br>
-         <!-- <v-alert type="error" value="error"> -->
-          <!-- {{registerError}} -->
-        <!-- </v-alert> -->
        
-        <v-btn dark
+        <v-btn
+         dark
             class="cyan darken-4"
             @click="register">
             <v-icon class="mr-2">account_circle</v-icon>
@@ -95,6 +44,9 @@ export default {
     }
   },
   methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    },
     async register () {
       try {
         const response = await AuthenticationService.register({

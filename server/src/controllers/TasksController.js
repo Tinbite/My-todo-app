@@ -3,7 +3,7 @@ const {Task} = require('../models')
   async index (req, res) {
     try {
       const tasks = await Task.findAll({
-        limit: 10
+        limit: 20
       })
       res.send(tasks)
     } catch (err) {

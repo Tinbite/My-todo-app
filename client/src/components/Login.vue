@@ -14,6 +14,7 @@
           placeholder="password"
           type="password"
           v-model="password"
+      autocomplete="new-password"
         ></v-text-field>
         <br>
         <div class="danger-alert" v-html="error" />
@@ -21,8 +22,7 @@
         <v-btn
           dark
           class="cyan darken-4"
-           @click="navigateTo({name: 'tasks'})"
-          >
+           @click="login">
           <v-icon class="mr-2">fingerprint</v-icon>
           Login
         </v-btn>
@@ -53,6 +53,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'tasks'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }

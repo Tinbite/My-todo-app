@@ -12,6 +12,11 @@ import createPersistedState from 'vuex-persistedstate'
     token: null,
     user: null,
     isUserLoggedIn: false
+    
+  },
+  getters:{
+    token: state => state.token 
+
   },
   mutations: {
     setToken (state, token) {

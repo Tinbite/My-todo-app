@@ -16,10 +16,10 @@
    <panel>
       <v-flex xs1 class="text-xs-right">
       <v-btn
-        @click="create"
         dark
         class="mt-2"
-        color="cyan darken-4">
+        color="cyan darken-4"
+        @click="create">
         <v-icon class="mr-2">add_circle</v-icon>
         Create
       </v-btn>

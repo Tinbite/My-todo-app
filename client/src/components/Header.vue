@@ -11,7 +11,8 @@
        </router-link>
     </v-toolbar-title>
      <v-toolbar-items>
-       <v-btn 
+       <v-btn
+       v-if="$store.state.isUserLoggedIn"
         flat 
         dark
         :to="{
@@ -56,7 +57,13 @@
   </v-toolbar>
 </template>
  <script>
+ 
 export default {
+  computed: {
+  token() {
+    return this.$store.getters.token
+  }
+  },
   methods: {
   logout () {
       this.$store.dispatch('setToken', null)

@@ -65,7 +65,7 @@ export default {
    this.taskId = this.$store.state.route.params.taskId
 
       try {
-        await TasksService.delete(taskId)
+        await TasksService.delete(this.taskId)
          this.task = null
       } catch (err) {
         // eslint-disable-next-line

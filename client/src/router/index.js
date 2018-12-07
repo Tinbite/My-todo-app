@@ -15,16 +15,26 @@ export default new Router ({
     {
     path: '/',
     name: 'root',
-    component: HelloWorld
+    component: HelloWorld,
+    meta: {
+        requireAuth: true,
+    }
+
     },
     {
         path: '/register',
         name: 'register',
-        component: Register
+        component: Register,
+        meta: {
+            requireVisitor: true,
+        }
       },{
       path: '/login',
       name: 'login',
-      component: Login 
+      component: Login,
+      meta: {
+          requireVisitor: true,
+      }
       },
       {
       path: '/tasks',
@@ -34,13 +44,13 @@ export default new Router ({
       {
         path: '/tasks/create',
         name: 'tasks-create',
-        component: CreateTask
+        component: CreateTask,
         },
       
         {
             path: '/tasks/:taskID/edit',
             name: 'task-edit',
-            component: EditTask
+            component: EditTask,
             }
 ]
 })
