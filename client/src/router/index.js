@@ -6,6 +6,8 @@ import Login from '@/components/Login'
 import Tasks from '@/components/Tasks'
 import CreateTask from '@/components/CreateTask'
 import EditTask from '@/components/EditTask'
+import DeleteTask from '@/components/DeleteTask'
+
 
 
 Vue.use(Router)
@@ -51,6 +53,11 @@ export default new Router ({
             path: '/tasks/:taskID/edit',
             name: 'task-edit',
             component: EditTask,
-            }
+            },
+            {
+                path: '/tasks/:taskID/delete',
+                name: 'task-delete',
+                component: DeleteTask,
+                }
 ]
 })

@@ -35,12 +35,24 @@
                 })">
            <v-icon>create</v-icon>
               </v-btn>  
-            <v-btn
+              <v-btn
+                dark
+               color="cyan darken-4"
+                @click="navigateTo({
+                  name: 'task-delete', 
+                  params: {
+                taskId: task.id
+                  }
+                })">
+           <v-icon>delete</v-icon>
+              </v-btn>
+            <!-- <v-btn
             dark
         class="cyan darken-4"
-        @click="taskdelete">
+        @click="taskdelete(taskId)"
+        >
         <v-icon>delete</v-icon>
-      </v-btn> 
+      </v-btn>  -->
             </v-flex>
           </v-layout>
         </div>
@@ -61,17 +73,17 @@ export default {
     }
   },
   methods: {
-   async taskdelete () {
-   this.taskId = this.$store.state.route.params.taskId
+  //  async taskdelete () {
+  //  this.taskId = this.$store.state.route.params.taskId
 
-      try {
-        await TasksService.delete(this.taskId)
-         this.task = null
-      } catch (err) {
-        // eslint-disable-next-line
-        console.log(err)
-      }
-    },
+  //     try {
+  //       await TasksService.delete(this.taskId)
+  //        this.task = null
+  //     } catch (err) {
+  //       // eslint-disable-next-line
+  //       console.log(err)
+  //     }
+  //   },
     navigateTo (route) {
       this.$router.push(route)
     }
