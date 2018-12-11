@@ -3,6 +3,7 @@
     <v-flex xs8 offset-xs3>
       <panel title="Tasks">
         <v-btn
+   
           slot="action"
           @click="navigateTo({name: 'tasks-create'})"
           class="cyan accent-2"
@@ -25,6 +26,7 @@
               </div>
             
            <v-btn
+           v-if="$store.state.isUserLoggedIn"
                 dark
                color="cyan darken-4"
                 @click="navigateTo({
@@ -46,13 +48,7 @@
                 })">
            <v-icon>delete</v-icon>
               </v-btn>
-            <!-- <v-btn
-            dark
-        class="cyan darken-4"
-        @click="taskdelete(taskId)"
-        >
-        <v-icon>delete</v-icon>
-      </v-btn>  -->
+
             </v-flex>
           </v-layout>
         </div>
@@ -61,9 +57,11 @@
   </v-layout>
 </template>
  <script>
+ import {mapState} from 'vuex'
 import TasksService from '@/services/TasksService'
 import Panel from '@/components/Panel'
 export default {
+   
   components: {
     Panel
   },
@@ -72,24 +70,23 @@ export default {
       tasks: null
     }
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
   methods: {
-  //  async taskdelete () {
-  //  this.taskId = this.$store.state.route.params.taskId
 
-  //     try {
-  //       await TasksService.delete(this.taskId)
-  //        this.task = null
-  //     } catch (err) {
-  //       // eslint-disable-next-line
-  //       console.log(err)
-  //     }
-  //   },
     navigateTo (route) {
       this.$router.push(route)
     }
   },
   async mounted () {
-    this.tasks = (await TasksService.index()).data
+    if(this.isUserLoggedIn){
+     this.tasks = (await TasksService.index()).data 
+    }
+    
   },
 
 }

@@ -16,6 +16,7 @@
    <panel>
       <v-flex xs1 class="text-xs-right">
       <v-btn
+       v-if="$store.state.isUserLoggedIn"
         dark
         class="mt-2"
         color="cyan darken-4"
@@ -35,6 +36,7 @@
   </v-layout>
 </template>
  <script>
+  // import {mapState} from 'vuex'
 import Panel from '@/components/Panel'
 import TasksService from '@/services/TasksService'
  export default {
@@ -49,7 +51,7 @@ import TasksService from '@/services/TasksService'
   },
   methods: {
     async create () {
-      this.error = null
+       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.task)
         .every(key => !!this.task[key])
