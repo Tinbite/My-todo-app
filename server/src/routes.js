@@ -1,7 +1,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const TasksController = require('./controllers/TasksController')
-// const isAuthenticated = require('./policies/isAuthenticated')
+ const isAuthenticated = require('./policies/isAuthenticated')
 
 module.exports = (app) => {
   app.post('/register',
@@ -12,22 +12,22 @@ module.exports = (app) => {
     AuthenticationController.login)
 
     app.get('/tasks',
-    // isAuthenticated,
+        isAuthenticated,
     TasksController.index)
 
   app.get('/tasks/:taskId',
-  // isAuthenticated,
+    //  isAuthenticated,
   TasksController.show)
 
   app.put('/tasks/:taskId',
-  // isAuthenticated,
+  //  isAuthenticated,
   TasksController.put)
 
-  app.post('/tasks',
-  // isAuthenticated,
-  TasksController.post)
+  app.post('/tasks', 
+      isAuthenticated,
+   TasksController.post)
 
   app.delete('/tasks/:taskId',
-  // isAuthenticated,
-    TasksController.delete)
+  isAuthenticated,
+  TasksController.delete)
 }
