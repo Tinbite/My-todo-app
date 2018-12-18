@@ -26,17 +26,12 @@
       </v-btn>
     </v-flex>
     </panel>
-       <!-- <v-btn
-        dark
-        class="cyan darken-4"
-        @click="create">
-        Create Task
-      </v-btn> -->
+      
    
   </v-layout>
 </template>
  <script>
-  // import {mapState} from 'vuex'
+
 import Panel from '@/components/Panel'
 import TasksService from '@/services/TasksService'
  export default {

@@ -27,7 +27,12 @@ const {Task} = require('../models')
   },
   async show (req, res) {
     try {
-      const task = await Task.findById(req.params.taskId)
+      const userId = req.user.id
+      const {taskId}= req.body
+      const task = await Task.findById(req.params.taskId, {
+        TaskId: taskId,
+        UserId: userId
+      })
       res.send(task)
     } catch (err) {
       res.status(500).send({
@@ -82,26 +87,3 @@ const {Task} = require('../models')
     }
   }
 } 
-
-// // verify token
-// function verifyToken(req,res,next){
-//   // get auth header value
-//   const bearerHeader = req.headers['authorization']
-  
-//   //  check if bearer is undefined
-//   if(typeof bearerHeader !== 'undefined') {
-  // split as z space (string array)
-  // const bearer = bearerHeader.split(' ') 
-  // get token from array 
-  // const bearerToken = bearer[1]
-  // set the token 
-  // req.token = bearerToken
-  // next();
-
-// } 
-// else 
-// {
-//   //forbidden
-//   res.sendstatus(403)
-// }
-// }

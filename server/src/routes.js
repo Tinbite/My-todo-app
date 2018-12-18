@@ -16,11 +16,11 @@ module.exports = (app) => {
     TasksController.index)
 
   app.get('/tasks/:taskId',
-    //  isAuthenticated,
+     isAuthenticated,
   TasksController.show)
 
   app.put('/tasks/:taskId',
-  //  isAuthenticated,
+    // isAuthenticated,
   TasksController.put)
 
   app.post('/tasks', 
