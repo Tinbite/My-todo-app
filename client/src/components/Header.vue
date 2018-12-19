@@ -1,13 +1,7 @@
 <template>
   <v-toolbar fixed class="cyan darken-4" dark>
     <v-toolbar-title class="mr-4">
-      <router-link
-         dark
-        class="home"
-         :to="{
-          name: 'root'
-        }">
-         My Todo 
+      <router-link>
        </router-link>
     </v-toolbar-title>
      <v-toolbar-items>

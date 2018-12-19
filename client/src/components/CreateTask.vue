@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-flex xs8>
+    <v-flex xs4>
       <panel title="My Tasks">
         <v-text-field
           label="Title"

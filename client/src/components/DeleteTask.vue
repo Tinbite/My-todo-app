@@ -4,12 +4,13 @@
       <panel title="tasks">
         <v-text-field
           label="Title"
-          required
-          :rules="[required]"
           v-model="task.title"
+          readonly
         ></v-text-field>
       </panel>
-   
+   </v-flex>
+   <panel>
+     <v-flex xs1 class="text-xs-right">
        <v-btn
         dark
         class="cyan darken-4"
@@ -17,6 +18,7 @@
         sure to delete
       </v-btn>
     </v-flex>
+     </panel>
   </v-layout>
 </template>
  <script>
@@ -29,26 +31,18 @@ import TasksService from '@/services/TasksService'
         title: null
       },
       error: null,
-    //   required: (value) => !!value || 'Required.'
+    
     }
   },
   methods: {
     async remove () {
-    //   this.error = null
-    //   const areAllFieldsFilledIn = Object
-        // .keys(this.task)
-        // .every(key => !!this.task[key])
-    //   if (!areAllFieldsFilledIn) {
-        // this.error = 'Please fill in all the required fields.'
-        // return
-    //   }
        this.taskId = this.$store.state.route.params.taskId
       try {
         await TasksService.delete(this.taskId)
          this.$router.push({
           name: 'tasks'
         })
-        //  this.task = null
+       
 
       } catch (err) {
         // eslint-disable-next-line

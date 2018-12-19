@@ -23,6 +23,7 @@ export default new Router ({
     }
 
     },
+    
     {
         path: '/register',
         name: 'register',

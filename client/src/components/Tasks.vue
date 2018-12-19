@@ -1,6 +1,6 @@
 <template>
-  <v-layout wrap align center>
-    <v-flex xs8 offset-xs3>
+  <v-layout align center>
+    <v-flex xs10 offset-xs1>
       <panel title="Tasks">
         <v-btn
    
@@ -24,22 +24,27 @@
               <div class="task-title">
                 {{task.title}}
               </div>
-            
+              </v-flex>
+            <v-flex xs1 class="text-xs-right">
            <v-btn
-           v-if="$store.state.isUserLoggedIn"
+           
                 dark
-               color="cyan darken-4"
+               outline small fab color="cyan darken-4"
                 @click="navigateTo({
                   name: 'task-edit', 
                   params: {
                 taskId: task.id
                   }
                 })">
-           <v-icon>create</v-icon>
-              </v-btn>  
+            <v-icon>edit</v-icon>
+              </v-btn>
+               </v-flex>  
+               <v-flex xs1 class="text-xs-right">
               <v-btn
                 dark
-               color="cyan darken-4"
+                
+               outline small fab color="cyan darken-4"
+             
                 @click="navigateTo({
                   name: 'task-delete', 
                   params: {

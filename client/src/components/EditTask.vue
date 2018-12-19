@@ -12,13 +12,18 @@
        <div class="danger-alert" v-if="error">
         {{error}}
       </div>
+    </v-flex>
+      <panel>
+     <v-flex xs1 class="text-xs-right">
        <v-btn
+       v-if="$store.state.isUserLoggedIn"
         dark
         class="cyan darken-4"
         @click="save">
         Save changes
       </v-btn>
     </v-flex>
+    </panel>
   </v-layout>
 </template>
  <script>
